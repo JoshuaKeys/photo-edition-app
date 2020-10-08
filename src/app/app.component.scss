@@ -1,0 +1,39 @@
+.app {
+  max-width: 800px;
+  margin: 50px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app__image-container {
+  border: thin dashed #d8d8d8;
+  min-height: 400px;
+  width: 800px;
+  margin: 0 auto 30px;
+  overflow-x: hidden;
+}
+.app__form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.form-group {
+  display: block;
+  margin-bottom: 10px;
+  margin-bottom: 40px;
+}
+.form-control {
+  display: flex;
+  align-items: center;
+  border: thin solid #d8d8d8;
+  height: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.btn {
+  height: 30px;
+  color: #000;
+  background: none;
+  border: 1px solid #d8d8d8;
+}

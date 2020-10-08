@@ -1,0 +1,21 @@
+<div class="dropdown">
+  <div class="dropdown__header" (click)="toggleDropDown()">
+    <span>{{ selected }}</span>
+    <img
+      src="https://img.icons8.com/metro/16/000000/chevron-down.png"
+      *ngIf="!isOpen; else showOpen"
+    />
+    <ng-template #showOpen>
+      <img src="https://img.icons8.com/metro/16/000000/chevron-up.png" />
+    </ng-template>
+  </div>
+  <ul class="dropdown__items" [@dropdown]="isOpen" *ngIf="isOpen">
+    <li
+      class="dropdown__item"
+      *ngFor="let dropdownItem of animation"
+      (click)="changeSelected(dropdownItem)"
+    >
+      {{ dropdownItem }}
+    </li>
+  </ul>
+</div>

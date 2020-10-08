@@ -1,0 +1,37 @@
+<ng-container *ngIf="isEdit; else editMode">
+  <div class="image" *ngIf="imgEvent && clickUrl">
+    <div class="image__preview">
+      <a [href]="clickUrl" class="image__preview-link">
+        <img [src]="base64Img" class="image__preview-item" />
+      </a>
+      <button class="image__preview-adjuster" (click)="toggleEditMode()">
+        Adjust
+      </button>
+    </div>
+  </div>
+</ng-container>
+<ng-template #editMode>
+  <image-cropper
+    [imageChangedEvent]="imgEvent.event"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="2 / 2"
+    format="png"
+    [transform]="imageTransFormObj"
+    [roundCropper]="true"
+    (imageCropped)="imageCropped($event)"
+  ></image-cropper>
+  <div class="image__adjustment-controls">
+    <button class="image__adjustment-controls-item" (click)="zoomIn()">
+      +
+    </button>
+    <button class="image__adjustment-controls-item" (click)="zoomOut()">
+      -
+    </button>
+    <button
+      class="image__adjustment-controls-item"
+      (click)="commitAdjustment()"
+    >
+      save
+    </button>
+  </div>
+</ng-template>
